@@ -1,0 +1,5 @@
+library(ggplot2)
+library(reshape2)
+data <- data.frame(time = seq(0, 23), noob = rnorm(24), plus = runif(24), extra = rpois(24, lambda = 1))
+Molten <- melt(data, id.vars = "time")
+ggplot(Molten, aes(x = time, y = value, colour = variable)) + geom_line()
